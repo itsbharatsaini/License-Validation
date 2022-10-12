@@ -1,5 +1,6 @@
 from Crypto.PublicKey import RSA
 
+
 def generateKey():
     key = RSA.generate(2048)
     publicKey = key.publickey().export_key()
@@ -13,4 +14,6 @@ def generateKey():
         writePrivateKey.write(privateKey)
         writePrivateKey.close()
     print("Private Key Created Successfully !!")
+
+
 generateKey()

@@ -5,8 +5,9 @@ from Crypto.Cipher import AES, PKCS1_OAEP
 publicKey = RSA.import_key(open("publicKey.pem").read())
 fileName = "LICENSE.txt"
 
+
 def encryptLicense(fileName, publicKey):
-    with open(fileName, 'rb') as readLicenseFile:
+    with open(fileName, "rb") as readLicenseFile:
         licenseFileData = readLicenseFile.read()
 
     session_key = get_random_bytes(16)
@@ -19,4 +20,6 @@ def encryptLicense(fileName, publicKey):
             writeLicenseFile.write(x)
         writeLicenseFile.close()
     print("License File encrypted Successfully !!")
+
+
 encryptLicense(fileName, publicKey)
